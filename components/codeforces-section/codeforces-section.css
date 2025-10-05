@@ -278,27 +278,7 @@ h1 {
   }
 
   .ring {
-    border-width: 30px;
-  }
-
-  .ring-1 {
-    width: 350px;
-    height: 350px;
-    top: 0%;
-    left: -175px;
-  }
-
-  .ring-2 {
-    width: 450px;
-    height: 450px;
-    left: -225px;
-  }
-
-  .ring-3 {
-    width: 400px;
-    height: 400px;
-    bottom: 0%;
-    left: -200px;
+    display: none;
   }
 
   h1 {
@@ -332,24 +312,6 @@ h1 {
     border-width: 25px;
   }
 
-  .ring-1 {
-    width: 280px;
-    height: 280px;
-    left: -140px;
-  }
-
-  .ring-2 {
-    width: 360px;
-    height: 360px;
-    left: -180px;
-  }
-
-  .ring-3 {
-    width: 320px;
-    height: 320px;
-    left: -160px;
-  }
-
   h1 {
     font-size: 32px;
   }
@@ -380,10 +342,4 @@ h1 {
     font-size: 14px;
     padding: 3px 10px;
   }
-
-  /* .cta-button {
-    padding: 12px 28px;
-    font-size: 15px;
-    margin-top: 24px;
-  } */
 }
