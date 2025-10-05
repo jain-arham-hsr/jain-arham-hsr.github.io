@@ -1,18 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  background: linear-gradient(135deg, #1a1f35 0%, #0f1219 100%);
-  min-height: 100vh;
-  margin: 0;
-  overflow-x: hidden;
-}
-
 .codeforces-section {
   width: 100%;
   min-height: 100vh;
@@ -21,6 +6,7 @@ body {
   display: flex;
   align-items: center;
   padding: 60px 0;
+  background: linear-gradient(179deg, #000000 0%, #0f1219 100%);
 }
 
 .content-wrapper {

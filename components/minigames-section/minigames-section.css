@@ -1,0 +1,45 @@
+.minigames-section {
+  display: contents;
+}
+
+.section-header {
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffffff 0%, #60a5fa 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 18px;
+  letter-spacing: -2px;
+  text-shadow: 0 0 80px rgba(62, 165, 240, 0.3);
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+.carousel {
+  height: 700px;
+  perspective: 600px;
+  transform: translateY(-100px);
+}
+
+.carousel .carousel-item {
+  cursor: pointer;
+  width: 600px;
+}
+
+.carousel .carousel-item:active {
+  cursor: grabbing;
+}
+
+.carousel .carousel-item img {
+  width: 100%;
+  border-radius: 20px;
+}
