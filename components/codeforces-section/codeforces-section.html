@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="./components/codeforces-section/codeforces-section.css">
+<link rel="stylesheet" href="stylesheets/buttons.css">
 
 <div class="codeforces-section">
   <div class="ring ring-1"></div>
@@ -15,22 +16,33 @@
       </p>
 
       <div class="stats-grid">
-        <div class="stat-card">
+        <div class="rating-stat-card stat-card">
           <div class="stat-label">Current Rating</div>
           <div class="stat-value">
-            1547
-            <div class="rating-badge">Expert</div>
+            <span id="rating-value"> -- </span>
+            <div id="rank-badge" class="rating-badge">--</div>
           </div>
         </div>
 
-        <div class="stat-card">
-          <div class="stat-label">Max Rating</div>
-          <div class="stat-value">
-            1632
+        <div class="rating-stat-card stat-card">
+          <div class="stat-label">Peak Rating</div>
+          <div id="max-rating-value" class="stat-value">
+            --
           </div>
         </div>
 
-        <div class="stat-card">
+        <div class="progress-stat-card stat-card">
+          <div id="progressbar-label" class="stat-label">Climbing to Expert Rating</div>
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progressBar" style="width: 0%"></div>
+          </div>
+          <div class="progress-stats">
+            <span id="progressbar-current" class="stat-label">Specialist: 1400</span>
+            <span id="progressbar-next" class="stat-label">Expert: 1600</span>
+          </div>
+        </div>
+
+        <!-- <div class="stat-card">
           <div class="stat-label">Problems Solved</div>
           <div class="stat-value">
             487
@@ -44,10 +56,12 @@
             1547
             <span class="unit">pts</span>
           </div>
-        </div>
+        </div> -->
       </div>
-
-      <a href="https://codeforces.com/" class="cta-button">View Profile →</a>
+      <div class="action-btns">
+        <a href="https://github.com/jain-arham-hsr/codeforces" target="_blank" class="btn btn-primary">Explore Solutions</a>
+        <a href="https://codeforces.com/profile/jain_arham_hsr" target="_blank" class="btn btn-secondary">View Profile →</a>
+      </div>
     </div>
   </div>
 </div>

@@ -5,7 +5,18 @@
   padding: 0;
   position: relative;
   background: radial-gradient(ellipse at top left, #1a1d29 0%, #000000 50%);
-  /* overflow: hidden; */
+}
+
+.hero h1 {
+  font-family: "Courier New", monospace;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeInUp 1s forwards 0.4s;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #e6edf3;
 }
 
 .gradient-orb {
@@ -432,5 +443,8 @@
 
   .illustration-right {
     max-width: 350px;
+  }
+  .hero h1 {
+    word-break: break-word;
   }
 }

@@ -124,6 +124,9 @@ h1 {
 
 .stats-grid {
   display: grid;
+  grid-template-areas:
+    "rating max-rating"
+    "progressbar progressbar";
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin-top: 32px;
@@ -156,6 +159,18 @@ h1 {
   transition: opacity 0.3s ease;
 }
 
+.rating-stat-card:nth-child(1) {
+  grid-area: rating;
+}
+
+.rating-stat-card:nth-child(1) {
+  grid-area: max-rating;
+}
+
+.progress-stat-card {
+  grid-area: progressbar;
+}
+
 .stat-card:nth-child(1) {
   --accent-color: #ff6b6b;
 }
@@ -164,9 +179,6 @@ h1 {
 }
 .stat-card:nth-child(3) {
   --accent-color: #5f27cd;
-}
-.stat-card:nth-child(4) {
-  --accent-color: #48dbfb;
 }
 
 .stat-card:hover {
@@ -216,23 +228,33 @@ h1 {
   color: #0a0e17;
 }
 
-.cta-button {
-  display: inline-block;
-  margin-top: 32px;
-  padding: 14px 32px;
-  background: linear-gradient(135deg, #48dbfb 0%, #5f27cd 100%);
-  color: white;
-  text-decoration: none;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 24px rgba(72, 219, 251, 0.25);
+.progress-bar-container {
+  background: rgba(255, 255, 255, 0.1);
+  height: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
-.cta-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(72, 219, 251, 0.35);
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #48dbfb 0%, #0abde3 100%);
+  border-radius: 10px;
+  transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.progress-stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-btns {
+  margin-top: 32px;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 @media (max-width: 968px) {
@@ -359,9 +381,9 @@ h1 {
     padding: 3px 10px;
   }
 
-  .cta-button {
+  /* .cta-button {
     padding: 12px 28px;
     font-size: 15px;
     margin-top: 24px;
-  }
+  } */
 }
