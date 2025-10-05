@@ -1,10 +1,10 @@
-class SiteFooter extends HTMLElement {
+class ContactSection extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
 
     // Load template HTML
-    fetch("./components/site-footer/site-footer.html")
+    fetch("./components/contact-section/contact-section.html")
       .then((res) => res.text())
       .then((html) => {
         const template = document.createElement("template");
@@ -14,4 +14,4 @@ class SiteFooter extends HTMLElement {
   }
 }
 
-customElements.define("site-footer", SiteFooter);
+customElements.define("contact-section", ContactSection);

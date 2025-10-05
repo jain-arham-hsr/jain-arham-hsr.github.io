@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Contact & About</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0f;
+      color: #e4e4e7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 78, 205, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 50%);
+      animation: gradientShift 20s ease infinite;
+      pointer-events: none;
+    }
+
+    @keyframes gradientShift {
+
+      0%,
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+
+      50% {
+        transform: translate(-10%, -10%) rotate(180deg);
+      }
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-size: 48px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      color: #a1a1aa;
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 50px;
+      margin-bottom: 80px;
+      position: relative;
+      align-items: center;
+    }
+
+    .contact-form {
+      padding: 50px 0;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .contact-form::after {
+      content: '';
+      position: absolute;
+      right: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 60%;
+      background: linear-gradient(to bottom, transparent, rgba(167, 139, 250, 0.3), transparent);
+      pointer-events: none;
+    }
+
+    .about-me {
+      padding: 50px 0;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    h2 {
+      color: #fff;
+      margin-bottom: 35px;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .form-group {
+      margin-bottom: 28px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #d4d4d8;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 16px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: inherit;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: rgba(167, 139, 250, 0.5);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.1);
+      transform: translateY(-2px);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    button {
+      width: 100%;
+      padding: 18px;
+      background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    button:hover::before {
+      left: 100%;
+    }
+
+    button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(167, 139, 250, 0.4);
+    }
+
+    button:active {
+      transform: translateY(-2px);
+    }
+
+    .about-content {
+      text-align: center;
+    }
+
+    .profile-photo-wrapper {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 30px;
+    }
+
+    .profile-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 78, 205, 0.5);
+      box-shadow: 0 0 40px rgba(255, 78, 205, 0.3),
+        inset 0 0 20px rgba(255, 78, 205, 0.1);
+      overflow: hidden;
+      background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 50%, #3b82f6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 56px;
+      font-weight: 700;
+      color: white;
+      position: relative;
+      animation: photoGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes photoGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 40px rgba(255, 78, 205, 0.3), inset 0 0 20px rgba(255, 78, 205, 0.1);
+      }
+
+      50% {
+        box-shadow: 0 0 60px rgba(255, 78, 205, 0.5), inset 0 0 30px rgba(255, 78, 205, 0.2);
+      }
+    }
+
+    .profile-photo-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, transparent, rgba(255, 78, 205, 0.3), transparent 180deg);
+      animation: rotate 4s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .about-name {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    .about-text {
+      color: #a1a1aa;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+
+
+    @media (max-width: 1024px) {
+      .section {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .contact-form::after {
+        display: none;
+      }
+
+      .contact-form::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -30px;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgba(167, 139, 250, 0.3), transparent);
+        pointer-events: none;
+      }
+
+      .section-title {
+        font-size: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 50px 24px;
+      }
+
+      .section {
+        gap: 50px;
+        margin-bottom: 60px;
+      }
+
+      .section-header {
+        margin-bottom: 50px;
+      }
+
+      .contact-form,
+      .about-me {
+        padding: 30px 0;
+      }
+
+      .section-title {
+        font-size: 32px;
+        line-height: 1.2;
+      }
+
+      .section-subtitle {
+        font-size: 16px;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+      }
+
+      input,
+      textarea {
+        padding: 14px 18px;
+        font-size: 15px;
+      }
+
+      button {
+        padding: 16px;
+        font-size: 15px;
+      }
+
+      .profile-photo-wrapper {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 25px;
+      }
+
+      .profile-photo {
+        width: 140px;
+        height: 140px;
+        font-size: 48px;
+      }
+
+      .about-name {
+        font-size: 24px;
+      }
+
+      .about-text {
+        font-size: 15px;
+        line-height: 1.7;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 40px 20px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .section-subtitle {
+        font-size: 15px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .profile-photo-wrapper {
+        width: 120px;
+        height: 120px;
+      }
+
+      .profile-photo {
+        width: 120px;
+        height: 120px;
+        font-size: 42px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="section-header">
+      <h1 class="section-title">Let's Connect</h1>
+      <p class="section-subtitle">Get in touch or learn more about what I do</p>
+    </div>
+
+    <div class="section">
+      <div class="contact-form">
+        <h2>Send a Message</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about your project or just say hi..." required></textarea>
+          </div>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <div class="about-me">
+        <div class="about-content">
+          <div class="profile-photo-wrapper">
+            <div class="profile-photo">
+              JD
+            </div>
+          </div>
+          <div class="about-name">John Doe</div>
+          <p class="about-text">
+            Crafting seamless digital experiences with modern technologies.
+            Passionate about clean code, innovative solutions, and building products that make a difference.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="socials">
+      <a href="https://github.com/yourusername" class="social-link" target="_blank" aria-label="GitHub">
+        <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+        </svg>
+      </a>
+      <a href="https://linkedin.com/in/yourusername" class="social-link" target="_blank" aria-label="LinkedIn">
+        <svg class="social-icon" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+        </svg>
+      </a>
+    </div>
+    <p class="footer-text">&copy; 2025 John Doe. Designed & Built with passion.</p>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const button = this.querySelector('button');
+      const originalText = button.textContent;
+
+      button.textContent = 'Sending...';
+      button.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+
+      setTimeout(() => {
+        button.textContent = '✓ Message Sent!';
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.style.background = '';
+          this.reset();
+        }, 2000);
+      }, 1000);
+    });
+
+    // Smooth hover effect for form inputs
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.parentElement.style.transform = 'translateX(4px)';
+      });
+      input.addEventListener('blur', function() {
+        this.parentElement.style.transform = '';
+      });
+    });
+  </script>
+</body>
+
+</html>
