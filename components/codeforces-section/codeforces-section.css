@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   padding: 60px 0;
-  background: linear-gradient(179deg, #000000 0%, #0f1219 100%);
+  background: linear-gradient(180deg, #000000 0%, #0f1219 100%);
 }
 
 .content-wrapper {
@@ -18,10 +18,6 @@
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.left-spacer {
-  /* Empty space for left side */
 }
 
 /* Ring styles - positioned at screen edges */

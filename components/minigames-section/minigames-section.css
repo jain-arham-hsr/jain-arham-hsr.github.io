@@ -6,6 +6,10 @@
   text-align: center;
 }
 
+.minigames-section .section-header {
+  margin-bottom: -75px;
+}
+
 .section-title {
   font-size: 3.8rem;
   font-weight: 900;
