@@ -163,7 +163,7 @@ h1 {
   grid-area: rating;
 }
 
-.rating-stat-card:nth-child(1) {
+.rating-stat-card:nth-child(2) {
   grid-area: max-rating;
 }
 
