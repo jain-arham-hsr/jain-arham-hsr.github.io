@@ -10,21 +10,21 @@ class MinigamesSection extends HTMLElement {
         const template = document.createElement("template");
         template.innerHTML = html;
         this.shadowRoot.appendChild(template.content.cloneNode(true));
+        // Initialize carousel after template is appended
+        this.initCarousel();
       });
-
-    this.initCarousel();
   }
 
   initCarousel() {
     const waitForMaterialize = () => {
-      if (window.M && window.M.Carousel) {
-        const carouselEls = this.shadowRoot.querySelectorAll(".carousel");
+      const carouselEls = this.shadowRoot.querySelectorAll(".carousel");
+      if (carouselEls.length > 0 && window.M && window.M.Carousel) {
         M.Carousel.init(carouselEls, {
           duration: 200,
           indicators: true,
         });
       } else {
-        // Retry if M isn't ready yet
+        // Retry until both the carousel element and Materialize are ready
         setTimeout(waitForMaterialize, 100);
       }
     };
