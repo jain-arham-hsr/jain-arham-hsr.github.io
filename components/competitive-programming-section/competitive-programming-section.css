@@ -1,6 +1,6 @@
 @import url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css");
 
-.codeforces-section {
+.competitive-programming-section {
   width: 100%;
   min-height: 100vh;
   position: relative;
@@ -218,7 +218,7 @@
 }
 
 @media (max-width: 968px) {
-  .codeforces-section {
+  .competitive-programming-section {
     min-height: auto;
     padding: 40px 0;
   }

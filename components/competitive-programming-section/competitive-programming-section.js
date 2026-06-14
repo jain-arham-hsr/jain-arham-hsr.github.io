@@ -1,10 +1,12 @@
-class CodeforcesSection extends HTMLElement {
+class CompetitiveProgrammingSection extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
 
     // Load template HTML
-    fetch("./components/codeforces-section/codeforces-section.html")
+    fetch(
+      "./components/competitive-programming-section/competitive-programming-section.html",
+    )
       .then((res) => res.text())
       .then((html) => {
         const template = document.createElement("template");
@@ -14,4 +16,7 @@ class CodeforcesSection extends HTMLElement {
   }
 }
 
-customElements.define("codeforces-section", CodeforcesSection);
+customElements.define(
+  "competitive-programming-section",
+  CompetitiveProgrammingSection,
+);
