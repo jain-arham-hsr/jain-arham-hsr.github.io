@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css");
+
 .codeforces-section {
   width: 100%;
   min-height: 100vh;
@@ -38,7 +40,8 @@
   top: 5%;
   left: -250px;
   animation-delay: 0s;
-  box-shadow: 0 0 60px rgba(255, 107, 107, 0.25),
+  box-shadow:
+    0 0 60px rgba(255, 107, 107, 0.25),
     inset 0 0 60px rgba(255, 107, 107, 0.15);
   transform: rotate(-15deg) scale(1.1, 0.95);
   clip-path: ellipse(50% 50% at 50% 50%);
@@ -52,7 +55,8 @@
   left: -300px;
   transform: translateY(-50%) rotate(25deg) scale(0.95, 1.15);
   animation-delay: 2s;
-  box-shadow: 0 0 60px rgba(254, 202, 87, 0.2),
+  box-shadow:
+    0 0 60px rgba(254, 202, 87, 0.2),
     inset 0 0 60px rgba(254, 202, 87, 0.12);
   clip-path: ellipse(48% 52% at 50% 50%);
 }
@@ -64,7 +68,8 @@
   bottom: 5%;
   left: -275px;
   animation-delay: 4s;
-  box-shadow: 0 0 60px rgba(72, 219, 251, 0.25),
+  box-shadow:
+    0 0 60px rgba(72, 219, 251, 0.25),
     inset 0 0 60px rgba(72, 219, 251, 0.15);
   transform: rotate(-20deg) scale(1.05, 0.9);
   clip-path: ellipse(51% 49% at 50% 50%);
@@ -90,171 +95,126 @@
   position: relative;
   z-index: 10;
 }
+/* --- Text Styles --- */
 
-.badge {
-  display: inline-block;
-  padding: 8px 16px;
-  background: rgba(72, 219, 251, 0.12);
-  border: 1px solid rgba(72, 219, 251, 0.25);
-  border-radius: 20px;
-  color: #48dbfb;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  letter-spacing: 0.5px;
-}
-
-h1 {
-  font-size: 52px;
-  font-weight: 800;
-  background: linear-gradient(135deg, #ffffff 0%, #b0b0b0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 16px;
-  line-height: 1.2;
-}
-
-.subtitle {
-  color: #8b92a8;
-  font-size: 17px;
-  line-height: 1.7;
+.statement-text {
+  color: #a0aec0; /* Slightly muted so the highlight stands out */
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.6;
   margin-bottom: 40px;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-areas:
-    "rating max-rating"
-    "progressbar progressbar";
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-top: 32px;
+.highlight-text {
+  font-family: "Computer Modern Serif", Georgia, "Times New Roman", serif;
+  font-weight: normal;
+  font-style: italic;
+  font-size: 1.15em;
+  background: linear-gradient(135deg, #48dbfb 0%, #b53cff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0px; /* Resetting the letter spacing to let the font breathe */
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
-.stat-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 24px;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+/* --- Deliberate Layout Structure --- */
+.action-section {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* Large, deliberate vertical gap between the primary button and profiles */
 }
 
-.stat-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
+.secondary-tier {
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* Space between the tiny label and the buttons */
+}
+
+.tier-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #64748b; /* Sleek, muted UI gray */
+  font-weight: 600;
+  padding-left: 4px;
+}
+
+.platform-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* --- Profile Buttons --- */
+.profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  /* Shifted the glass effect here */
   background: linear-gradient(
-    90deg,
-    transparent,
-    var(--accent-color),
-    transparent
+    135deg,
+    rgba(72, 219, 251, 0.08) 0%,
+    rgba(181, 60, 255, 0.08) 100%
   );
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  border: 1px solid rgba(181, 60, 255, 0.3);
+  color: #e2e8f0;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: inset 0 0 12px rgba(72, 219, 251, 0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
 }
 
-.rating-stat-card:nth-child(1) {
-  grid-area: rating;
+.profile-btn img {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0) invert(1);
+  opacity: 0.7; /* Slightly brighter by default so they don't get lost in the glass */
 }
 
-.rating-stat-card:nth-child(2) {
-  grid-area: max-rating;
+/* Hover effects for the glass profiles */
+.profile-btn:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(72, 219, 251, 0.15) 0%,
+    rgba(181, 60, 255, 0.15) 100%
+  );
+  border-color: rgba(72, 219, 251, 0.5);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 20px rgba(181, 60, 255, 0.2),
+    inset 0 0 15px rgba(72, 219, 251, 0.1);
 }
 
-.progress-stat-card {
-  grid-area: progressbar;
-}
-
-.stat-card:nth-child(1) {
-  --accent-color: #ff6b6b;
-}
-.stat-card:nth-child(2) {
-  --accent-color: #feca57;
-}
-.stat-card:nth-child(3) {
-  --accent-color: #5f27cd;
-}
-
-.stat-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-4px);
-}
-
-.stat-card:hover::before {
+.profile-btn:hover img {
+  transform: scale(1.1);
   opacity: 1;
 }
 
-.stat-label {
-  color: #6b7280;
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-}
+@media (max-width: 640px) {
+  .action-section {
+    gap: 28px;
+  }
 
-.stat-value {
-  color: #ffffff;
-  font-size: 32px;
-  font-weight: 700;
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
+  .platform-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-.stat-value .unit {
-  font-size: 15px;
-  color: #8b92a8;
-  font-weight: 500;
-}
+  .profile-btn {
+    justify-content: center;
+  }
 
-.rating-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 4px 12px;
-  background: linear-gradient(135deg, #48dbfb 0%, #0abde3 100%);
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  margin-top: 4px;
-  color: #0a0e17;
-}
-
-.progress-bar-container {
-  background: rgba(255, 255, 255, 0.1);
-  height: 12px;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-top: 25px;
-  margin-bottom: 25px;
-}
-
-.progress-bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #48dbfb 0%, #0abde3 100%);
-  border-radius: 10px;
-  transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-}
-
-.progress-stats {
-  display: flex;
-  justify-content: space-between;
-}
-
-.action-btns {
-  margin-top: 32px;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  .tier-label {
+    text-align: center;
+  }
 }
 
 @media (max-width: 968px) {
@@ -281,25 +241,8 @@ h1 {
     display: none;
   }
 
-  h1 {
-    font-size: 38px;
-  }
-
-  .subtitle {
-    font-size: 16px;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .stat-card {
-    padding: 20px;
-  }
-
-  .stat-value {
-    font-size: 28px;
+  .statement-text {
+    font-size: 20px;
   }
 }
 
@@ -312,34 +255,24 @@ h1 {
     border-width: 25px;
   }
 
-  h1 {
-    font-size: 32px;
-  }
-
-  .subtitle {
-    font-size: 15px;
+  .statement-text {
+    font-size: 18px;
     margin-bottom: 30px;
+    line-height: 1.5;
   }
+}
 
-  .badge {
-    font-size: 12px;
-    padding: 6px 14px;
-  }
+/* --- External Link Icon Styling --- */
+.external-icon {
+  width: 12px !important;
+  height: 12px !important;
+  margin-left: 10px !important;
+  margin-left: 4px; /* Gives it a tiny bit of breathing room from the text */
+  opacity: 0.3 !important; /* Starts intentionally dim so it doesn't distract */
+}
 
-  .stat-card {
-    padding: 18px;
-  }
-
-  .stat-label {
-    font-size: 12px;
-  }
-
-  .stat-value {
-    font-size: 24px;
-  }
-
-  .rating-badge {
-    font-size: 14px;
-    padding: 3px 10px;
-  }
+.profile-btn:hover .external-icon {
+  /* opacity: 0.8 !important; */
+  /* Creates a snappy diagonal "pop" to indicate it opens a new tab */
+  transform: scale(1.1) !important;
 }
